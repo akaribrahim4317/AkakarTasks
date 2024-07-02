@@ -1,8 +1,8 @@
-import {Image, SafeAreaView, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {Image, SafeAreaView, StyleSheet, View} from 'react-native';
 import React from 'react';
-import InputBox from '../components/InputBox';
-import CustomButton from '../components/CustomButton';
-import Title from '../components/Title';
+
+
+import Components from '../components'
 
 const LoginScreen = () => {
   return (
@@ -26,7 +26,7 @@ const LoginScreen = () => {
               margin: 4,
             }}></View>
           <Image
-            source={require('../assets/images/akakarlogo.png')}
+            source={require('../../assets/images/akakarlogo.png')}
             style={styles.logo}
             resizeMode="contain"
           />
@@ -37,11 +37,11 @@ const LoginScreen = () => {
               flex: 1,
             }}></View>
         </View>
-        <Title title={'Hoşgeldiniz'} />
-        <InputBox placeholder={'Kullanıcı Adı'} style={{width: '90%'}} />
-        <InputBox placeholder={'Şifre'} secureTextEntry={true} />
+        <Components.Title title={'Hoşgeldiniz'} />
+        <Components.InputBox placeholder={'Kullanıcı Adı'} style={{width: '90%'}} />
+        <Components.InputBox  placeholder={'Şifre'} secureTextEntry={true} />
 
-        <CustomButton
+        <Components.CustomButton
           title={'Giriş Yap'}
           style={{width: '90%', backgroundColor: 'red'}}
         />

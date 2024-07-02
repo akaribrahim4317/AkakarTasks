@@ -5,10 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 // Screens
-import AdminScreen from '../screens/AdminScreen';
-import ProfileScreen from '../screens/ProfileScreen';
-import TasksScreen from '../screens/TasksScreen';
-import Notifications from '../screens/Notifications';
+import Screens from '../screens';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,9 +18,9 @@ const UserTabs = () => {
         tabBarInactiveTintColor: 'gray',
       }}
     >
-      <Tab.Screen name="Profile" component={ProfileScreen} options={{ tabBarIcon: () => <Icon name="person-outline" size={25} /> }} />
-      <Tab.Screen name="Tasks" component={TasksScreen} />
-      <Tab.Screen name="Notifications" component={Notifications} options={{ tabBarBadge: 3 }} />
+      <Tab.Screen name="Profile" component={Screens.ProfileScreen} options={{ tabBarIcon: () => <Icon name="person-outline" size={25} /> }} />
+      <Tab.Screen name="Tasks" component={Screens.TasksScreen} />
+      <Tab.Screen name="Notifications" component={Screens.NotificationsScreen} options={{ tabBarBadge: 3 }} />
     </Tab.Navigator>
   );
 };
@@ -37,9 +34,9 @@ const AdminTabs = () => {
         tabBarInactiveTintColor: 'gray',
       }}
     >
-      <Tab.Screen name="Admin" component={AdminScreen} options={{ tabBarIcon: () => <Icon name="shield-outline" size={25} /> }} />
-      <Tab.Screen name="Profile" component={ProfileScreen} options={{ tabBarIcon: () => <Icon name="person-outline" size={25} /> }} />
-      <Tab.Screen name="Notifications" component={Notifications} options={{ tabBarBadge: 3 }} />
+      <Tab.Screen name="Admin" component={Screens.AdminScreen} options={{ tabBarIcon: () => <Icon name="shield-outline" size={25} /> }} />
+      <Tab.Screen name="Profile" component={Screens.ProfileScreen} options={{ tabBarIcon: () => <Icon name="person-outline" size={25} /> }} />
+      <Tab.Screen name="Notifications" component={Screens.NotificationsScreen} options={{ tabBarBadge: 3 }} />
     </Tab.Navigator>
   );
 };

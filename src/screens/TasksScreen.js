@@ -8,7 +8,9 @@ import {
   Image,
 } from 'react-native';
 import moment from 'moment';
-import Task from '../components/Task';
+
+
+import Components from '../components'
 
 const TasksScreen = () => {
   const [pressedTasks, setPressedTasks] = useState({});
@@ -42,7 +44,7 @@ const TasksScreen = () => {
   };
 
   const renderItem = ({item}) => (
-    <Task
+    <Components.Task
       task={item}
       pressed={!!pressedTasks[item.id]}
       onPress={() => toggleTaskDone(item.id)}
@@ -65,7 +67,7 @@ const TasksScreen = () => {
           <View style={{flexDirection: 'row', alignItems: 'center', marginRight: 10, borderWidth: 0.25, padding: 7, borderRadius: 5}} >
             <Text style={{marginRight: 10}} >Filter</Text>
             <Image
-              source={require('../assets/images/filter.png')}
+              source={require('../../assets/images/filter.png')}
               style={{width: 20, height: 20}}
             />
           </View>

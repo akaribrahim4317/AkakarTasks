@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, View, Modal } from 'react-native';
-import CustomButton from '../components/CustomButton';
-import NewTask from './NewTask';
+
+
+import Components from '../components';
+
+
 
 
 const AdminScreen = () => {
@@ -19,14 +22,14 @@ const AdminScreen = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         <Text style={styles.title}>Admin Screen</Text>
-        <CustomButton title={'Add a new task'} onPress={openModal} />
+        <Components.CustomButton title={'Add a new task'} onPress={openModal} />
         <Modal
         presentationStyle = 'formSheet'
           visible={isModalVisible}
           animationType="slide"
           onRequestClose={closeModal}
         >
-          <NewTask onClose={closeModal} />
+          <Components.NewTask onClose={closeModal} />
         </Modal>
       </View>
     </SafeAreaView>

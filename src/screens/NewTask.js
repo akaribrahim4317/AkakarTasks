@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Button, Modal, FlatList, Image } from 'react-native';
 import DatePicker from 'react-native-date-picker';
-import InputBox from '../components/InputBox';
-import CustomButton from '../components/CustomButton';
+
+import Components from '../components';
 
 const USERS = [
   {
@@ -36,10 +36,10 @@ const NewTask = ({ onClose }) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ padding: 10 }}>
         <Text style={styles.title}>Enter new task</Text>
-        <InputBox placeholder={'New Task'} />
+        <Components.InputBox placeholder={'New Task'} />
 
         <Text style={styles.title}>Description</Text>
-        <InputBox placeholder={'Description'} />
+        <Components.InputBox placeholder={'Description'} />
         <View
           style={{
             flexDirection: 'row',
@@ -103,7 +103,7 @@ const NewTask = ({ onClose }) => {
           </View>
         </View>
       </View>
-      <CustomButton title={'Submit'} onPress={closeModal} />
+      <Components.CustomButton title={'Submit'} onPress={closeModal} />
     </SafeAreaView>
   );
 };
