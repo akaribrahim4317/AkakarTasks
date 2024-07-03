@@ -4,4 +4,4 @@ import Title from "./Title";
 import Task from "./Task";
 import Notification from "./Notification";
 
-export { CustomButton, InputBox, Title, Task, Notification }
+export default { CustomButton, InputBox, Title, Task, Notification }
