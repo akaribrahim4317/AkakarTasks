@@ -1,15 +1,8 @@
-import AdminScreen from "./AdminScreen";
-import ProfileScreen from "./ProfileScreen";
-import TasksScreen from "./TasksScreen";
-import NotificationsScreen from "./NotificationsScreen";
-import LoginScreen from "./LoginScreen";
-import NewTask from "./NewTask";
-
+import LoadingScreen from './loading.screen';
+import LoginScreen from './login.screen';
+import HomeScreen from './home-screen';
 export default {
-    AdminScreen,
-    ProfileScreen,
-    TasksScreen,
-    NotificationsScreen,
-    LoginScreen,
-    NewTask,
-}
+  LoadingScreen,
+  LoginScreen,
+  HomeScreen,
+};

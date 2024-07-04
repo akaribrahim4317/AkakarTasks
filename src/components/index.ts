@@ -1,7 +1,4 @@
-import CustomButton from "./CustomButton";
-import InputBox from "./InputBox";
-import Title from "./Title";
-import Task from "./Task";
-import Notification from "./Notification";
+import Input from './input.component';
+import Button from './button.component';
 
-export default { CustomButton, InputBox, Title, Task, Notification }
+export {Input, Button};
