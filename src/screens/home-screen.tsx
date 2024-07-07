@@ -3,7 +3,7 @@ import React from 'react';
 
 const HomeScreen: React.FC = () => {
   return (
-    <View style={styles.container} >
+    <View style={styles.container}>
       <Text>HomeScreen</Text>
     </View>
   );

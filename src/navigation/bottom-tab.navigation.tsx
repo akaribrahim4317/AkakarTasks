@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/Fontisto';
 const Tab = createBottomTabNavigator<BottomTabStack>();
 
 const BottomTab = () => {
+  const notifications = 0;
   return (
     <Tab.Navigator
       screenOptions={{
@@ -34,7 +35,7 @@ const BottomTab = () => {
           ),
         }}
       />
-      
+
       <Tab.Screen
         name="Profile"
         component={Screens.ProfileScreen}
@@ -53,6 +54,7 @@ const BottomTab = () => {
         name="Notification"
         component={Screens.NotificationScreen}
         options={{
+          tabBarBadge: notifications,
           headerTitle: () => <Image source={Images.LOGO} style={styles.logo} />,
           tabBarIcon: ({focused}) => (
             <Icon
@@ -74,7 +76,6 @@ const styles = StyleSheet.create({
     width: wp('30%'),
     height: wp('30%'),
     resizeMode: 'contain',
-  
   },
   settings: {
     width: wp('8%'),
