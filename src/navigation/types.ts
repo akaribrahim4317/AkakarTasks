@@ -7,4 +7,5 @@ export type RootStackParamList = {
 export type BottomTabStack = {
   Home: undefined;
   Profile: undefined;
+  Notification: undefined;
 };

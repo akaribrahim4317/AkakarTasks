@@ -49,6 +49,20 @@ const BottomTab = () => {
           ),
         }}
       />
+      <Tab.Screen
+        name="Notification"
+        component={Screens.NotificationScreen}
+        options={{
+          headerTitle: () => <Image source={Images.LOGO} style={styles.logo} />,
+          tabBarIcon: ({focused}) => (
+            <Icon
+              size={wp('6.11%')}
+              name="bell"
+              color={focused ? Colors.PRIMARY : Colors.BLACK}
+            />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
@@ -60,6 +74,7 @@ const styles = StyleSheet.create({
     width: wp('30%'),
     height: wp('30%'),
     resizeMode: 'contain',
+  
   },
   settings: {
     width: wp('8%'),
