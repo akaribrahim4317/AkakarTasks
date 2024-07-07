@@ -34,6 +34,21 @@ const BottomTab = () => {
           ),
         }}
       />
+      
+      <Tab.Screen
+        name="Profile"
+        component={Screens.ProfileScreen}
+        options={{
+          headerTitle: () => <Image source={Images.LOGO} style={styles.logo} />,
+          tabBarIcon: ({focused}) => (
+            <Icon
+              size={wp('6.11%')}
+              name="person"
+              color={focused ? Colors.PRIMARY : Colors.BLACK}
+            />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
