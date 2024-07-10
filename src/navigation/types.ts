@@ -2,6 +2,7 @@ export type RootStackParamList = {
   Loading: undefined;
   Login: undefined;
   TabStack: undefined;
+  AddScreen: undefined;
 };
 
 export type BottomTabStack = {

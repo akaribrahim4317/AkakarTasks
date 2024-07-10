@@ -1,15 +1,16 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 ////Screens
 import Screens from '../screens';
-import {RootStackParamList} from './types';
-import {StyleSheet} from 'react-native';
-import {Colors} from '../constants';
-import {wp} from '../utils';
+import { RootStackParamList } from './types';
+import { StyleSheet } from 'react-native';
+import { Colors } from '../constants';
+import { wp } from '../utils';
 
 ///Stack
 import BottomTab from './bottom-tab.navigation';
+import AddScreen from '../screens/add-screen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -25,17 +26,23 @@ const AppNavigator: React.FC = () => {
       <Stack.Screen
         name="Loading"
         component={Screens.LoadingScreen}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="Login"
         component={Screens.LoginScreen}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="TabStack"
         component={BottomTab}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        screenOptions={{ headerShown: true }}
+        name="AddScreen"
+        component={AddScreen}
+        options={{ headerShown: true, headerTitle: 'Add a new task' }}
       />
     </Stack.Navigator>
   );
@@ -68,5 +75,5 @@ const styles = StyleSheet.create({
     height: wp('6%'),
     resizeMode: 'contain',
   },
-  headerCustomer: {alignItems: 'center', justifyContent: 'flex-end'},
+  headerCustomer: { alignItems: 'center', justifyContent: 'flex-end' },
 });
