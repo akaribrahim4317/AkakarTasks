@@ -6,17 +6,14 @@ import { Colors, Users } from '../constants';
 
 
 const HomeScreen: React.FC = () => {
-  const randomNumber = Math.floor(Math.random() * 10)
 
 
-  console.log(Users)
 
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginHorizontal: wp(5) }} >
         <Text style={styles.title} >Çalışan Listesi</Text>
         <TouchableOpacity onPress={() => navigate('AddScreen')} style={styles.imageContainer} >
-
           <Image source={require('../../assets/images/add.png')} style={styles.image} />
         </TouchableOpacity>
       </View>
@@ -25,7 +22,7 @@ const HomeScreen: React.FC = () => {
         renderItem={({ item }) =>
           <TouchableOpacity onPress={() => { console.log(item.firstName) }} style={styles.userContainer} >
             <Text style={styles.user} >{item.firstName} {item.lastName} </Text>
-            <Text style={styles.user} > Tamamladı: {randomNumber} / {randomNumber}</Text>
+            <Text style={styles.user} > Tamamladı: {item.tasksCompleted} / {item.tasks}</Text>
           </TouchableOpacity>}
       />
     </View >
@@ -55,6 +52,7 @@ const styles = StyleSheet.create({
     padding: 10,
     alignSelf: 'flex-end',
     borderRadius: 30,
+    alignItems: 'center'
   },
   user: {
     fontSize: 20,
@@ -68,7 +66,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     borderRadius: 8,
     marginHorizontal: wp(5),
-
+    marginVertical: hp(1),
     width: wp('90%'),
     height: hp(10),
     marginBottom: 5,
