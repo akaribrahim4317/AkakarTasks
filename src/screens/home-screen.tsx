@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: wp(8),
     fontWeight: 'bold',
-    color: '#0C1844',
+    color: Colors.DARKBLUE,
     alignSelf: 'center',
   },
   image: {

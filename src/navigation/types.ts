@@ -9,4 +9,5 @@ export type BottomTabStack = {
   Home: undefined;
   Profile: undefined;
   Notification: undefined;
+  Tasks: undefined;
 };

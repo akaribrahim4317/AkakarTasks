@@ -42,7 +42,7 @@ const AppNavigator: React.FC = () => {
         screenOptions={{ headerShown: true }}
         name="AddScreen"
         component={AddScreen}
-        options={{ headerShown: true, headerTitle: 'Add a new task' }}
+        options={{ headerShown: true, headerTitle: 'Add a new task', headerTitleStyle: { color: Colors.PRIMARY, fontSize: wp('5%') } }}
       />
     </Stack.Navigator>
   );

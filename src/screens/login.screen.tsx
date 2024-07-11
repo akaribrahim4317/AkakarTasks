@@ -1,13 +1,13 @@
-import {Image, SafeAreaView, ScrollView, StyleSheet} from 'react-native';
-import React, {useState} from 'react';
-import {Colors, Images} from '../constants';
-import {wp} from '../utils';
-import {Input, Button} from '../components';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../navigation/types';
+import { Image, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { Colors, Images } from '../constants';
+import { wp } from '../utils';
+import { Input, Button } from '../components';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../navigation/types';
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
-const LoginScreen: React.FC<Props> = ({navigation}) => {
+const LoginScreen: React.FC<Props> = ({ navigation }) => {
   const [userName, setUserName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   return (

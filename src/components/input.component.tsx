@@ -1,7 +1,7 @@
 import React from 'react';
-import {Text, TextInput, StyleSheet, TextInputProps, View} from 'react-native';
-import {wp, hp} from '../utils';
-import {Colors} from '../constants';
+import { Text, TextInput, StyleSheet, TextInputProps, View } from 'react-native';
+import { wp, hp } from '../utils';
+import { Colors } from '../constants';
 interface CustomComponentProps {
   text: string;
   value: string;

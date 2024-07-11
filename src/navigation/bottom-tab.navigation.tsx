@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react/react-in-jsx-scope */
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Screens from '../screens';
-import {BottomTabStack} from './types';
-import {Image, StyleSheet} from 'react-native';
-import {Colors, Images} from '../constants';
-import {wp} from '../utils';
+import { BottomTabStack } from './types';
+import { Image, StyleSheet } from 'react-native';
+import { Colors, Images } from '../constants';
+import { wp } from '../utils';
 import Icon from 'react-native-vector-icons/Fontisto';
 
 const Tab = createBottomTabNavigator<BottomTabStack>();
@@ -19,18 +19,18 @@ const BottomTab = () => {
         headerTitleStyle: styles.headerTitle,
         headerShadowVisible: false,
         tabBarActiveTintColor: Colors.PRIMARY,
-        tabBarInactiveTintColor: Colors.BLACK,
+        tabBarInactiveTintColor: Colors.DARKBLUE,
       }}>
       <Tab.Screen
         name="Home"
         component={Screens.HomeScreen}
         options={{
           headerTitle: () => <Image source={Images.LOGO} style={styles.logo} />,
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <Icon
               size={wp('6.11%')}
               name="home"
-              color={focused ? Colors.PRIMARY : Colors.BLACK}
+              color={focused ? Colors.PRIMARY : Colors.DARKBLUE}
             />
           ),
         }}
@@ -41,11 +41,11 @@ const BottomTab = () => {
         component={Screens.ProfileScreen}
         options={{
           headerTitle: () => <Image source={Images.LOGO} style={styles.logo} />,
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <Icon
               size={wp('6.11%')}
               name="person"
-              color={focused ? Colors.PRIMARY : Colors.BLACK}
+              color={focused ? Colors.PRIMARY : Colors.DARKBLUE}
             />
           ),
         }}
@@ -56,11 +56,28 @@ const BottomTab = () => {
         options={{
           tabBarBadge: notifications,
           headerTitle: () => <Image source={Images.LOGO} style={styles.logo} />,
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <Icon
               size={wp('6.11%')}
               name="bell"
-              color={focused ? Colors.PRIMARY : Colors.BLACK}
+              color={focused ? Colors.PRIMARY : Colors.DARKBLUE}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Tasks"
+        component={Screens.tasksScreen}
+        options={{
+          tabBarBadge: notifications,
+          headerTitle: () =>
+
+            <Image source={Images.LOGO} style={styles.logo} />,
+          tabBarIcon: ({ focused }) => (
+            <Icon
+              size={wp('6.11%')}
+              name="person"
+              color={focused ? Colors.PRIMARY : Colors.DARKBLUE}
             />
           ),
         }}
@@ -84,13 +101,13 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: wp('5%'),
-    color: Colors.BLACK,
+    color: Colors.DARKBLUE,
   },
   share: {
     width: wp('6%'),
     height: wp('6%'),
     resizeMode: 'contain',
   },
-  headerCustomer: {alignItems: 'center', justifyContent: 'flex-end'},
+  headerCustomer: { alignItems: 'center', justifyContent: 'flex-end' },
 });
 export default BottomTab;
