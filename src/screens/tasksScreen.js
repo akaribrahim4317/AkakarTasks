@@ -1,10 +1,8 @@
 // TaskScreen.js
 import React from 'react';
 import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
-import TodayDate from '../components/todayDate';
 import {tasks} from '../constants';
 import Task from '../components/Task';
-import Icon from 'react-native-vector-icons/Fontisto';
 
 const TaskScreen = () => {
   return (

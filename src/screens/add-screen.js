@@ -84,16 +84,16 @@ const AddScreen = () => {
         rules={{required: true}}
         defaultValue=""
       />
-      <View>
+      <View style={styles.modalsContainer}>
         <Controller
           name="user"
           control={control}
           render={({field: {value}}) => (
             <View style={{flexDirection: 'row'}}>
               <TouchableOpacity
-                style={styles.selectUserButton}
+                style={[styles.selectButton, styles.sharedButton]}
                 onPress={() => setUserModalVisible(true)}>
-                <Text style={styles.selectUserButtonText}>
+                <Text style={styles.selectButtonText}>
                   {value
                     ? `${value.firstName} ${value.lastName}`
                     : 'Select User'}
@@ -126,14 +126,22 @@ const AddScreen = () => {
                 name="date"
                 control={control}
                 render={({field: {onChange, onBlur, value}}) => (
-                  <View>
-                    <Button title="Show Date Picker" onPress={showDatePicker} />
+                  <View style={[styles.dateInput, styles.sharedButton]}>
+                    <TouchableOpacity
+                      style={[styles.selectButton, styles.sharedButton]}
+                      onPress={showDatePicker}>
+                      <Text style={styles.selectButtonText}>
+                        {value ? value.toString() : 'Select Date'}
+                      </Text>
+                    </TouchableOpacity>
                     <DateTimePickerModal
-                      style={styles.dateInput}
                       isVisible={isDatePickerVisible}
                       mode="date"
                       onConfirm={handleConfirm}
                       onCancel={hideDatePicker}
+                      onChange={onChange}
+                      onBlur={onBlur}
+                      value={value}
                     />
                   </View>
                 )}
@@ -185,24 +193,22 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
     width: '100%',
-    height: 50,
+    height: '50%', // Ensure consistent height
   },
   modalText: {
     textAlign: 'center',
     fontSize: 30,
     fontWeight: 'bold',
   },
-  selectUserButton: {
-    marginLeft: wp('5%'),
-    marginBottom: 20,
+  selectButton: {
+    justifyContent: 'center',
     padding: 10,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: Colors.PRIMARY,
     borderRadius: 8,
     backgroundColor: Colors.PRIMARY,
-    width: wp('40%'),
   },
-  selectUserButtonText: {
+  selectButtonText: {
     fontSize: 18,
     textAlign: 'center',
     color: 'white',
@@ -220,12 +226,22 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   dateInput: {
-    marginHorizontal: wp('5%'),
-    marginBottom: 20,
-    padding: 10,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: Colors.PRIMARY,
     borderRadius: 8,
-    width: wp('45%'),
+    backgroundColor: Colors.PRIMARY,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  sharedButton: {
+    width: wp('42%'),
+    height: hp('6%'),
+    marginHorizontal: wp('3%'),
+  },
+  modalsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 8,
+    padding: 10,
   },
 });
