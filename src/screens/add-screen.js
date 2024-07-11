@@ -14,8 +14,24 @@ import {Button} from '../components';
 import {Colors} from '../constants';
 import {wp, hp} from '../utils';
 import {Users} from '../constants';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
 const AddScreen = () => {
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = date => {
+    console.warn('A date has been picked: ', date);
+    hideDatePicker();
+  };
+
   const {
     control,
     handleSubmit,
@@ -110,14 +126,16 @@ const AddScreen = () => {
                 name="date"
                 control={control}
                 render={({field: {onChange, onBlur, value}}) => (
-                  <TextInput
-                    style={styles.dateInput}
-                    placeholder="GG-AA-YYYY"
-                    onBlur={onBlur}
-                    onChangeText={value => onChange(value)}
-                    value={value}
-                    keyboardType="numeric"
-                  />
+                  <View>
+                    <Button title="Show Date Picker" onPress={showDatePicker} />
+                    <DateTimePickerModal
+                      style={styles.dateInput}
+                      isVisible={isDatePickerVisible}
+                      mode="date"
+                      onConfirm={handleConfirm}
+                      onCancel={hideDatePicker}
+                    />
+                  </View>
                 )}
                 rules={{required: true}}
                 defaultValue=""
