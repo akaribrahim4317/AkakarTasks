@@ -16,7 +16,7 @@ import {wp, hp} from '../utils';
 import {Users} from '../constants';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
-const AddScreen = () => {
+const AddScreen:React.FC = () => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const showDatePicker = () => {
@@ -27,7 +27,7 @@ const AddScreen = () => {
     setDatePickerVisibility(false);
   };
 
-  const handleConfirm = date => {
+  const handleConfirm = (date: any) => {
     console.warn('A date has been picked: ', date);
     hideDatePicker();
   };
@@ -42,12 +42,12 @@ const AddScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [userModalVisible, setUserModalVisible] = useState(false);
 
-  const submit = data => {
+  const submit = (data: any) => {
     console.log(data);
     setModalVisible(true);
   };
 
-  const selectUser = user => {
+  const selectUser = (user) => {
     setValue('user', user);
     setUserModalVisible(false);
   };
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.PRIMARY,
     padding: 20,
     borderRadius: 10,
-    shadowColor: '#000',
+    shadowColor: Colors.BLACK,
     shadowOffset: {
       width: 0,
       height: 2,

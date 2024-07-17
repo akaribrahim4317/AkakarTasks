@@ -1,10 +1,10 @@
 // TaskScreen.js
 import React from 'react';
 import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
-import {tasks} from '../constants';
-import Task from '../components/Task';
+import {Colors, tasks} from '../constants';
+import Task from '../components/task.component';
 
-const TaskScreen = () => {
+const TaskScreen : React.FC = () => {
   return (
     <View style={styles.container}>
       <FlatList
@@ -25,7 +25,7 @@ const TaskScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.WHITE,
   },
   dateContainer: {
     alignSelf: 'flex-end',

@@ -12,30 +12,52 @@ const Tab = createBottomTabNavigator<BottomTabStack>();
 
 const BottomTab = () => {
   const notifications = 0;
+  const privateUser = true;
+
   return (
     <Tab.Navigator
-      screenOptions={{
+      screenOptions={({ route }) => ({
         headerStyle: styles.header,
         headerTitleStyle: styles.headerTitle,
         headerShadowVisible: false,
         tabBarActiveTintColor: Colors.PRIMARY,
         tabBarInactiveTintColor: Colors.DARKBLUE,
-      }}>
-      <Tab.Screen
-        name="Home"
-        component={Screens.HomeScreen}
-        options={{
-          headerTitle: () => <Image source={Images.LOGO} style={styles.logo} />,
-          tabBarIcon: ({ focused }) => (
-            <Icon
-              size={wp('6.11%')}
-              name="home"
-              color={focused ? Colors.PRIMARY : Colors.DARKBLUE}
-            />
-          ),
-        }}
-      />
-
+     
+      })}
+    >
+      {privateUser && (
+        <Tab.Screen
+          name="Home"
+          component={Screens.HomeScreen}
+          options={{
+            headerTitle: () => <Image source={Images.LOGO} style={styles.logo} />,
+            tabBarIcon: ({ focused }) => (
+              <Icon
+                size={wp('6.11%')}
+                name="home"
+                color={focused ? Colors.PRIMARY : Colors.DARKBLUE}
+              />
+            ),
+          }}
+        />
+      )}
+      {!privateUser && (
+        <Tab.Screen
+          name="Tasks"
+          component={Screens.TasksScreen}
+          options={{
+            tabBarBadge: notifications,
+            headerTitle: () => <Image source={Images.LOGO} style={styles.logo} />,
+            tabBarIcon: ({ focused }) => (
+              <Icon
+                size={wp('6.11%')}
+                name="person"
+                color={focused ? Colors.PRIMARY : Colors.DARKBLUE}
+              />
+            ),
+          }}
+        />
+      )}
       <Tab.Screen
         name="Profile"
         component={Screens.ProfileScreen}
@@ -65,26 +87,10 @@ const BottomTab = () => {
           ),
         }}
       />
-      <Tab.Screen
-        name="Tasks"
-        component={Screens.tasksScreen}
-        options={{
-          tabBarBadge: notifications,
-          headerTitle: () =>
-
-            <Image source={Images.LOGO} style={styles.logo} />,
-          tabBarIcon: ({ focused }) => (
-            <Icon
-              size={wp('6.11%')}
-              name="person"
-              color={focused ? Colors.PRIMARY : Colors.DARKBLUE}
-            />
-          ),
-        }}
-      />
     </Tab.Navigator>
   );
 };
+
 const styles = StyleSheet.create({
   header: {
     backgroundColor: Colors.WHITE,
@@ -110,4 +116,5 @@ const styles = StyleSheet.create({
   },
   headerCustomer: { alignItems: 'center', justifyContent: 'flex-end' },
 });
+
 export default BottomTab;

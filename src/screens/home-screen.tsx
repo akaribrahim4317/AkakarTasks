@@ -2,19 +2,16 @@ import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react
 import React from 'react';
 import { hp, wp } from '../utils';
 import { navigate } from '../utils/navigation.util';
-import { Colors, Users } from '../constants';
+import { Colors, Images, Users } from '../constants';
 
 
 const HomeScreen: React.FC = () => {
-
-
-
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginHorizontal: wp(5) }} >
         <Text style={styles.title} >Çalışan Listesi</Text>
         <TouchableOpacity onPress={() => navigate('AddScreen')} style={styles.imageContainer} >
-          <Image source={require('../../assets/images/add.png')} style={styles.image} />
+          <Image source={Images.ADD} style={styles.image} />
         </TouchableOpacity>
       </View>
       <FlatList
@@ -22,7 +19,10 @@ const HomeScreen: React.FC = () => {
         renderItem={({ item }) =>
           <TouchableOpacity onPress={() => { console.log(item.firstName) }} style={styles.userContainer} >
             <Text style={styles.user} >{item.firstName} {item.lastName} </Text>
-            <Text style={styles.user} > Tamamladı: {item.tasksCompleted} / {item.tasks}</Text>
+            <View style={{flexDirection:'row'}}>
+            <Text style={styles.user} >{item.tasksCompleted}/</Text>
+            <Text style={styles.user} >{item.tasks}</Text>
+            </View>
           </TouchableOpacity>}
       />
     </View >
@@ -34,17 +34,17 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.WHITE
   },
   title: {
-    fontSize: wp(8),
+    fontSize: wp('4%'),
     fontWeight: 'bold',
     color: Colors.DARKBLUE,
     alignSelf: 'center',
   },
   image: {
-    width: wp('10%'),
-    height: wp('10%'),
+    width: wp('7%'),
+    height: wp('7%'),
     tintColor: Colors.PRIMARY,
 
   },
@@ -55,29 +55,23 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   user: {
-    fontSize: 20,
-    color: Colors.WHITE
+    fontSize: wp('4%'),
+    color: Colors.DARKBLUE,
+    fontWeight: '400',
   },
   userContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 10,
+    padding: 6,
     alignSelf: 'flex-start',
-    borderRadius: 8,
+    borderRadius: 5,
     marginHorizontal: wp(5),
     marginVertical: hp(1),
     width: wp('90%'),
-    height: hp(10),
     marginBottom: 5,
-    backgroundColor: Colors.PRIMARY,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 2,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    backgroundColor: Colors.WHITE,
+    borderWidth:wp(0.2),
+    borderColor:Colors.PRIMARY
   },
 });

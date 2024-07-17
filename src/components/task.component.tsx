@@ -2,8 +2,16 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {wp} from '../utils';
+interface TaskProps {
+  task: {
+    title: string;
+    description: string;
+    assignedTo: string;
+    dueDate: string;
+  };
+}
 
-const Task = ({task}) => {
+const Task:React.FC<TaskProps> = ({task}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{task.title}</Text>

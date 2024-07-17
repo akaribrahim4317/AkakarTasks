@@ -5,8 +5,7 @@ import { format } from 'date-fns';
 
 const TodayDate: React.FC = () => {
     const today = new Date();
-    const formattedDate = format(today, ' dd.MM.yyyy'); // Format the date as "July 11, 2024"
-
+    const formattedDate = format(today, ' dd.MM.yyyy'); 
     return (
         <View style={styles.container}>
             <Text style={styles.dateText}>{formattedDate}</Text>
